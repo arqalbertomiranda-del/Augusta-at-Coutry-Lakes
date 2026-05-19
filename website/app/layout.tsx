@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-MX" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        <Script id="schema-org" type="application/ld+json" strategy="beforeInteractive">
+        <Script id="schema-org" type="application/ld+json" strategy="lazyOnload">
           {orgSchema}
         </Script>
       </head>

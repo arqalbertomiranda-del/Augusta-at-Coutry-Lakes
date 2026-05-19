@@ -5,8 +5,8 @@
   --color-sage: #5C6E4B;
   --color-slate: #2D3340;
 
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
 
   --text-hero: clamp(2.5rem, 1rem + 6vw, 5rem);
   --text-h1: clamp(2rem, 0.8rem + 4vw, 3.5rem);

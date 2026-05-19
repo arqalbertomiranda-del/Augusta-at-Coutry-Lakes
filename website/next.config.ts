@@ -7,7 +7,7 @@ const config: NextConfig = {
       { protocol: 'https', hostname: 'storage.googleapis.com' },
     ],
   },
-  typedRoutes: true,
+  // typedRoutes: true,  // re-enable after all pages are created (Tasks 5-6)
 }
 
 export default config
