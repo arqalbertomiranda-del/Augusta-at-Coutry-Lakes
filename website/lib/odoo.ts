@@ -42,7 +42,7 @@ function mapOdooLot(raw: unknown): Lot {
     name: String(r.name ?? ''),
     area: Number(r.area_sqm ?? 0),
     price: Number(r.list_price ?? 0),
-    status: statusMap[String(r.state ?? '')] ?? 'disponible',
+    status: statusMap[String(r.state ?? '')] ?? 'apartado',
     facing: String(r.facing ?? ''),
     section: String(r.section ?? ''),
     imageUrl: r.image_url ? String(r.image_url) : undefined,

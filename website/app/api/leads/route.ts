@@ -13,8 +13,25 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Cuerpo de solicitud inválido' }, { status: 400 })
   }
 
-  if (!body.firstName || !body.lastName || !body.email || !body.phone) {
-    return NextResponse.json({ error: 'Nombre, apellido, email y teléfono son requeridos' }, { status: 400 })
+  if (!body.firstName?.trim() || !body.lastName?.trim()) {
+    return NextResponse.json({ error: 'Nombre y apellido son requeridos' }, { status: 400 })
+  }
+
+  // Basic email format check
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!body.email || !emailRe.test(body.email) || body.email.length > 254) {
+    return NextResponse.json({ error: 'Email inválido' }, { status: 400 })
+  }
+
+  // Phone: allow digits, spaces, hyphens, parentheses, +
+  const phoneRe = /^\+?[\d\s\-().]{7,20}$/
+  if (!body.phone || !phoneRe.test(body.phone)) {
+    return NextResponse.json({ error: 'Teléfono inválido (7-20 caracteres, solo dígitos y +)' }, { status: 400 })
+  }
+
+  // Length caps
+  if ((body.message?.length ?? 0) > 2000) {
+    return NextResponse.json({ error: 'Mensaje demasiado largo (máx 2000 caracteres)' }, { status: 400 })
   }
 
   const lead: Lead = {

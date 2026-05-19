@@ -21,21 +21,26 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Cuerpo de solicitud inválido' }, { status: 400 })
   }
 
-  if (!Number.isFinite(price) || price <= 0) {
-    return NextResponse.json({ error: 'El precio debe ser un número positivo' }, { status: 400 })
+  if (!Number.isFinite(price) || price <= 0 || price > 1_000_000_000) {
+    return NextResponse.json({ error: 'Precio fuera de rango (debe ser entre 1 y 1,000,000,000)' }, { status: 400 })
   }
 
-  const options: FinancingOption[] = PLANS.map(plan => {
-    const annualRate = 'discount' in plan ? 0 : plan.annualRate
-    const principal = 'discount' in plan ? price * (1 - plan.discount) : price
-    const months = plan.months
-    return {
-      label: plan.label,
-      months,
-      annualRate,
-      monthlyPayment: calculateMonthlyPayment({ principal, annualRate, months }),
-    }
-  })
-
+  let options: FinancingOption[]
+  try {
+    options = PLANS.map(plan => {
+      const annualRate = 'discount' in plan ? 0 : plan.annualRate
+      const principal = 'discount' in plan ? price * (1 - plan.discount) : price
+      const months = plan.months
+      return {
+        label: plan.label,
+        months,
+        annualRate,
+        monthlyPayment: calculateMonthlyPayment({ principal, annualRate, months }),
+      }
+    })
+  } catch (err) {
+    console.error('[POST /api/financing]', err)
+    return NextResponse.json({ error: 'Error calculando opciones de financiamiento' }, { status: 500 })
+  }
   return NextResponse.json({ options })
 }

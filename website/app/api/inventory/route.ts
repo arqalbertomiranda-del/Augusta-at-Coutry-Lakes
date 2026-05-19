@@ -9,8 +9,7 @@ export async function GET() {
     const lots = await fetchLots()
     return NextResponse.json({ lots })
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Error desconocido'
     console.error('[GET /api/inventory]', err)
-    return NextResponse.json({ lots: [], error: message }, { status: 500 })
+    return NextResponse.json({ lots: [], error: 'Error obteniendo inventario' }, { status: 500 })
   }
 }
