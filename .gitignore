@@ -1,0 +1,51 @@
+# Credentials — NEVER commit
+.env
+*.env.local
+
+# Generated outputs and large binaries (stored externally in OneDrive/SharePoint)
+outputs/
+output/
+tmp/
+logs/
+references/
+
+# Test/scratch images in root
+*.jpg
+*.png
+*.jpeg
+*.mp4
+*.MP4
+
+# Subfolder with full project assets (managed separately in SharePoint)
+Augusta at Country Lakes/
+
+# Nested git repos (manage separately)
+arcads-agent-skills/
+
+# Windows system files
+desktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Node (for future website build)
+node_modules/
+.next/
+.vercel/
+dist/
+build/
+
+# OS
+.DS_Store

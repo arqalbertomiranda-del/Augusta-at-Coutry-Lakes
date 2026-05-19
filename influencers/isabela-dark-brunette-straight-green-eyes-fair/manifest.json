@@ -1,0 +1,66 @@
+[
+  {
+    "file": "01-hero-front.jpg",
+    "id": "01-hero-front",
+    "status": "generated",
+    "url": "https://argoseyes.s3-accelerate.amazonaws.com/production/videoassets/62a6a517-2829-4c12-823f-ab45d1fe769e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAS5Z5FDA4BQBRWQOT%2F20260430%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260430T014134Z&X-Amz-Expires=43200&X-Amz-Signature=6cab762b0f7372974abd4eb4d16649cea74460fc322a3447cd9618822ec44eae&X-Amz-SignedHeaders=host&response-content-disposition=attachment&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+    "credits": "?",
+    "asset_id": "62a6a517-2829-4c12-823f-ab45d1fe769e"
+  },
+  {
+    "file": "02-3q-left.jpg",
+    "id": "02-3q-left",
+    "status": "generated",
+    "url": "https://argoseyes.s3-accelerate.amazonaws.com/production/videoassets/16031b87-1f02-4bae-bff2-30158106f048.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAS5Z5FDA4BQBRWQOT%2F20260430%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260430T014242Z&X-Amz-Expires=43200&X-Amz-Signature=fbd323203496ad76c4357b3972042f538a33d5b9bc93ee70424b9f9f5918debb&X-Amz-SignedHeaders=host&response-content-disposition=attachment&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+    "credits": "?",
+    "asset_id": "16031b87-1f02-4bae-bff2-30158106f048"
+  },
+  {
+    "file": "03-3q-right.jpg",
+    "id": "03-3q-right",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  },
+  {
+    "file": "04-profile-left.jpg",
+    "id": "04-profile-left",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  },
+  {
+    "file": "05-profile-right.jpg",
+    "id": "05-profile-right",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  },
+  {
+    "file": "06-face-closeup.jpg",
+    "id": "06-face-closeup",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  },
+  {
+    "file": "07-back-shoulder.jpg",
+    "id": "07-back-shoulder",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  },
+  {
+    "file": "08-medium-portrait.jpg",
+    "id": "08-medium-portrait",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  },
+  {
+    "file": "09-full-body-3q.jpg",
+    "id": "09-full-body-3q",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  },
+  {
+    "file": "10-above-angle.jpg",
+    "id": "10-above-angle",
+    "status": "failed_create",
+    "error": "{\"message\":\"UNKNOWN_ERROR\",\"error\":\"Internal Server Error\",\"statusCode\":500}"
+  }
+]
