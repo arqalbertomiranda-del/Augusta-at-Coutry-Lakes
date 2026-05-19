@@ -1,0 +1,23 @@
+:root {
+  --color-midnight: #0A0E1A;
+  --color-champagne: #C8A96E;
+  --color-ivory: #FAF8F3;
+  --color-sage: #5C6E4B;
+  --color-slate: #2D3340;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --text-hero: clamp(2.5rem, 1rem + 6vw, 5rem);
+  --text-h1: clamp(2rem, 0.8rem + 4vw, 3.5rem);
+  --text-h2: clamp(1.5rem, 0.6rem + 3vw, 2.5rem);
+  --text-body: clamp(1rem, 0.92rem + 0.4vw, 1.125rem);
+
+  --space-section: clamp(4rem, 2rem + 8vw, 10rem);
+  --radius-card: 12px;
+  --shadow-card: 0 4px 24px rgba(10, 14, 26, 0.12);
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
