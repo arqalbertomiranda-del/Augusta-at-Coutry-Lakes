@@ -1,7 +1,5 @@
 'use client'
-import type { LotStatus } from '@/lib/types'
-
-type FilterValue = LotStatus | 'all'
+import type { LotStatus, FilterValue } from '@/lib/types'
 
 const options: { value: FilterValue; label: string }[] = [
   { value: 'all',        label: 'Todos' },

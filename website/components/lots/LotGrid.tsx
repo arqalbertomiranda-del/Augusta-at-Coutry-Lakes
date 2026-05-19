@@ -1,10 +1,8 @@
 'use client'
 import { useState } from 'react'
-import type { Lot, LotStatus } from '@/lib/types'
+import type { Lot, LotStatus, FilterValue } from '@/lib/types'
 import LotCard from './LotCard'
 import LotFilter from './LotFilter'
-
-type FilterValue = LotStatus | 'all'
 
 export default function LotGrid({ lots }: { lots: Lot[] }) {
   const [filter, setFilter] = useState<FilterValue>('all')

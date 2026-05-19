@@ -15,7 +15,10 @@ export default function FinancingCalc({ price }: { price: number }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ price }),
     })
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        return r.json()
+      })
       .then((data: { options?: FinancingOption[] }) => {
         setOptions(data.options ?? [])
         setLoading(false)

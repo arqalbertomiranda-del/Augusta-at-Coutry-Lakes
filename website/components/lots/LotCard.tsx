@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import type { Lot } from '@/lib/types'
 
@@ -8,7 +9,7 @@ const statusConfig = {
 } satisfies Record<string, { label: string; className: string }>
 
 export default function LotCard({ lot }: { lot: Lot }) {
-  const config = statusConfig[lot.status]
+  const config = statusConfig[lot.status] ?? { label: lot.status, className: 'bg-gray-800 text-gray-400' }
 
   return (
     <article className="bg-[#2D3340] rounded-xl overflow-hidden flex flex-col shadow-lg">

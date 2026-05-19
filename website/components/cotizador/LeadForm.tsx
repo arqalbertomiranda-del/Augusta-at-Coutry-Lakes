@@ -53,19 +53,78 @@ export default function LeadForm({ lotId, lotName }: { lotId?: string; lotName?:
         </p>
       )}
       <div className="grid grid-cols-2 gap-3">
-        <input required minLength={1} maxLength={100} placeholder="Nombre" value={form.firstName} onChange={set('firstName')} className={inputClass} />
-        <input required minLength={1} maxLength={100} placeholder="Apellido" value={form.lastName} onChange={set('lastName')} className={inputClass} />
+        <div>
+          <label htmlFor="firstName" className="sr-only">Nombre</label>
+          <input
+            id="firstName"
+            name="firstName"
+            required
+            minLength={1}
+            maxLength={100}
+            autoComplete="given-name"
+            placeholder="Nombre"
+            value={form.firstName}
+            onChange={set('firstName')}
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label htmlFor="lastName" className="sr-only">Apellido</label>
+          <input
+            id="lastName"
+            name="lastName"
+            required
+            minLength={1}
+            maxLength={100}
+            autoComplete="family-name"
+            placeholder="Apellido"
+            value={form.lastName}
+            onChange={set('lastName')}
+            className={inputClass}
+          />
+        </div>
       </div>
-      <input required type="email" placeholder="Email" value={form.email} onChange={set('email')} className={inputClass} />
-      <input required type="tel" placeholder="Teléfono (ej. +52 999 000 0000)" value={form.phone} onChange={set('phone')} className={inputClass} />
-      <textarea
-        placeholder="¿Tienes alguna pregunta?"
-        value={form.message}
-        onChange={set('message')}
-        rows={3}
-        maxLength={2000}
-        className={`${inputClass} resize-none`}
-      />
+      <div>
+        <label htmlFor="email" className="sr-only">Email</label>
+        <input
+          id="email"
+          name="email"
+          required
+          type="email"
+          autoComplete="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={set('email')}
+          className={inputClass}
+        />
+      </div>
+      <div>
+        <label htmlFor="phone" className="sr-only">Teléfono</label>
+        <input
+          id="phone"
+          name="phone"
+          required
+          type="tel"
+          autoComplete="tel"
+          placeholder="Teléfono (ej. +52 999 000 0000)"
+          value={form.phone}
+          onChange={set('phone')}
+          className={inputClass}
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="sr-only">Mensaje</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="¿Tienes alguna pregunta?"
+          value={form.message}
+          onChange={set('message')}
+          rows={3}
+          maxLength={2000}
+          className={`${inputClass} resize-none`}
+        />
+      </div>
       {status === 'error' && (
         <p role="alert" className="text-red-400 text-sm">Hubo un error. Por favor intenta de nuevo.</p>
       )}

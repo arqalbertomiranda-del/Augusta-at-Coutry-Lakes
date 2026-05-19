@@ -42,3 +42,5 @@ export interface FinancingOption {
   annualRate: number
   monthlyPayment: number
 }
+
+export type FilterValue = LotStatus | 'all'
