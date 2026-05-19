@@ -4,20 +4,30 @@ const BASE_URL = process.env.ODOO_API_URL
 const API_KEY = process.env.ODOO_API_KEY
 
 export async function fetchLots(): Promise<Lot[]> {
-  if (!BASE_URL || !API_KEY) return []
+  if (!BASE_URL || !API_KEY) {
+    throw new Error('ODOO_API_URL and ODOO_API_KEY must be configured')
+  }
 
-  const res = await fetch(`${BASE_URL}/api/method/augusta.get_lots`, {
-    headers: {
-      Authorization: `Bearer ${API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    next: { revalidate: 60 },
-  })
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), 10_000)
 
-  if (!res.ok) throw new Error(`Odoo error: ${res.status}`)
+  try {
+    const res = await fetch(`${BASE_URL}/api/method/augusta.get_lots`, {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      next: { revalidate: 60 },
+      signal: controller.signal,
+    })
 
-  const data = await res.json() as { result?: unknown[] }
-  return (data.result ?? []).map(mapOdooLot)
+    if (!res.ok) throw new Error(`Odoo error: ${res.status}`)
+
+    const data = await res.json() as { result?: unknown[] }
+    return (data.result ?? []).map(mapOdooLot)
+  } finally {
+    clearTimeout(timeoutId)
+  }
 }
 
 function mapOdooLot(raw: unknown): Lot {

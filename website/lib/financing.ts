@@ -1,6 +1,9 @@
 import type { FinancingInput, AmortizationRow } from './types'
 
 export function calculateMonthlyPayment({ principal, annualRate, months }: FinancingInput): number {
+  if (principal <= 0 || months <= 0 || annualRate < 0) {
+    throw new Error('Invalid financing input: principal and months must be positive, rate must be non-negative')
+  }
   if (annualRate === 0) return principal / months
   const r = annualRate / 12
   return (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1)
